@@ -21,6 +21,16 @@ public class MobileConfig implements WebMvcConfigurer {
     DeviceHandlerMethodArgumentResolver deviceHandlerMethodArgumentResolver;
 
 
+    @Bean
+    public DeviceResolverHandlerInterceptor deviceResolverHandlerInterceptor(){
+        return new DeviceResolverHandlerInterceptor();
+    }
+
+    @Bean
+    public DeviceHandlerMethodArgumentResolver deviceHandlerMethodArgumentResolver(){
+        return new DeviceHandlerMethodArgumentResolver();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(deviceResolverHandlerInterceptor);
